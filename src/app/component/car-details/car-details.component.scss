@@ -1,0 +1,17 @@
+* {
+    overflow-x: hidden;
+    word-wrap: break-word;
+  
+    .carousel-inner {
+        width: 640px;
+        height: 360px;
+        .carousel-item.active img {
+          margin: auto;
+          display: block;
+          width: 640px;
+          //   max-width: 640px;
+          height: 360px;
+          //   max-height: 360px;
+        }
+      }
+  }
