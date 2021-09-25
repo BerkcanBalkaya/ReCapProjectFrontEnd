@@ -8,7 +8,7 @@ import { RentalDetailService } from 'src/app/services/rental-detail.service';
   styleUrls: ['./rental.component.scss']
 })
 export class RentalComponent implements OnInit {
-  rentalDetails: RentalDetail[]=[];
+  rentalDetails: RentalDetail[];
   constructor(private rentalDetailService:RentalDetailService) { }
 
   ngOnInit(): void {
