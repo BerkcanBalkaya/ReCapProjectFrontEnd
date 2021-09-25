@@ -10,6 +10,8 @@ import { CarComponent } from './component/car/car.component';
 import { ColorComponent } from './component/color/color.component';
 import { CustomerComponent } from './component/customer/customer.component';
 import { RentalComponent } from './component/rental/rental.component';
+import { CarDetailsComponent } from './component/car-details/car-details.component';
+import { SanitizerService } from './services/sanitizer.service';
 
 
 @NgModule({
@@ -21,13 +23,14 @@ import { RentalComponent } from './component/rental/rental.component';
     ColorComponent,
     CustomerComponent,
     RentalComponent,
+    CarDetailsComponent,
   ],
   imports: [
     HttpClientModule,
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [SanitizerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
