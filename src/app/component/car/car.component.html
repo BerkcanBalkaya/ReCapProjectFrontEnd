@@ -1,4 +1,21 @@
-<table class="table">
+<div class="row">
+  <div *ngFor="let carDetail of carsDetails" class="col-md-4">
+    <div class="card" style="width: 18rem">
+      <img
+        [src]="getCarThumbnailUrl(carDetail.carId)"
+        class="card-img-top"
+        role="button"
+        routerLink="/cardetails/{{carDetail.carId}}"
+        alt="kys"
+      />
+      <div class="card-body">
+        <h5 class="card-title">{{ carDetail.carName }}</h5>
+        <a class="btn btn-primary">Incele</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- <table class="table">
     <thead>
         <tr>
             <th>Araç Adı</th>
@@ -13,4 +30,4 @@
     <td>{{carDetail.colorName}}</td>
     <td>{{carDetail.dailyPrice}}</td>
   </tr>
-</table>
+</table> -->
