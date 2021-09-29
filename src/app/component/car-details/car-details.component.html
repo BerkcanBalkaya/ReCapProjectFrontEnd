@@ -33,7 +33,6 @@
       </div>
     </div>
   </div>
-
   <div class="col-md-5 ps-5">
     <div>
       <table *ngIf="detailsLoaded" class="table table-striped">
@@ -58,6 +57,40 @@
           <td>{{ carDetail.dailyPrice }}</td>
         </tr>
       </table>
+    </div>
+  </div>
+</div>
+<div class="row mt-3">
+  <div class="col input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Rent Start Date</span>
+    <input
+      type="datetime-local"
+      [value]="getDateTimeNow()"
+      [min]="getDateTimeNow()"
+      class="form-control"
+      placeholder="Username"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+  <div class="col input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">Rent End Date</span>
+    <input
+      type="datetime-local"
+      [value]="getDateTimeNow()"
+      [min]="getDateTimeNow()"
+      class="form-control"
+      placeholder="Username"
+      aria-label="Username"
+      aria-describedby="basic-addon1"
+    />
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <div class="d-grid">
+      <button routerLink="/rental/payment"
+       class="btn btn-primary" type="button">+Rent</button>
     </div>
   </div>
 </div>

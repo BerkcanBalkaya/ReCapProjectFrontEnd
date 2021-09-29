@@ -6,6 +6,7 @@ import { CarImage } from 'src/app/models/carImage';
 import { CarDetailService } from 'src/app/services/car-detail.service';
 import { CarImageService } from 'src/app/services/car-image.service';
 import { CarService } from 'src/app/services/car.service';
+import { DateTimeService } from 'src/app/services/date-time.service';
 import { SanitizerService } from 'src/app/services/sanitizer.service';
 
 @Component({
@@ -22,6 +23,7 @@ export class CarDetailsComponent implements OnInit {
 
 
   constructor(private carDetailService: CarDetailService,
+    private dateTimeService:DateTimeService,
     private carService: CarService,
     private activatedRoute: ActivatedRoute,
     private carImageService: CarImageService,
@@ -84,5 +86,10 @@ export class CarDetailsComponent implements OnInit {
       this.currentImage=this.carImages[currentIndex+1];
     }
   }
+
+  getDateTimeNow(){
+    return this.dateTimeService.getTodayWithTime();
+  }
+
 
 }
