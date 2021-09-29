@@ -1,8 +1,26 @@
+
+<div class="form-group mb-3">
+  <input
+    type="text"
+    [(ngModel)]="colorFilter"
+    class="form-control"
+    id="colorFilter"
+    placeholder="Enter Color"
+  />
+</div>
 <ul class="list-group">
+  <li
+    [class]="getCurrentColorClass()"
+    (click)="setCurrentColorEmpty()"
+    routerLink="/cars"
+  >
+    {{ colorFilterHeader }}
+  </li>
+
   <li
     (click)="setCurrentColor(color)"
     routerLink="/cars/color/{{color.id}}"
-    *ngFor="let color of colors"
+    *ngFor="let color of colors | colorFilter:colorFilter"
     [class]="getCurrentColorClass(color)"
   >
     {{ color.name }}
