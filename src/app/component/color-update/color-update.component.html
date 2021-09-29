@@ -1,0 +1,36 @@
+<div *ngIf="colorLoaded === true" class="card">
+    <div class="card-header">
+      <h5 class="title font-weight-bold">Update Color</h5>
+    </div>
+  
+    <div class="card-body">
+      <form [formGroup]="colorUpdateForm">
+        <div class="row">
+          <div class="mb-3">
+            <div class="form-group">
+              <label for="name">New Color Name:</label>
+              <input
+                type="text"
+                id="name"
+                class="form-control"
+                formControlName="name"
+                placeholder="{{ color.name }}"
+              />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="card-footer">
+      <button class="btn btn-fill btn-dark" (click)="backToList()">
+        Back To List
+      </button>
+      <button
+        class="btn btn-fill btn-warning"
+        (click)="update()"
+        style="float: right"
+      >
+        Update
+      </button>
+    </div>
+  </div>
