@@ -1,0 +1,41 @@
+<table *ngIf="carsLoaded===true" class="table table-striped">
+  <thead class="bg-primary text-light">
+    <tr>
+      <th class="text-light" scope="col">Id</th>
+      <th class="text-light" scope="col">Brand </th>
+      <th class="text-light" scope="col">Description</th>
+      <th class="text-light" scope="col">Model Year</th>
+      <th class="text-light" scope="col">Color</th>
+      <th class="text-light" scope="col">Daily Price</th>
+      <th scope="col">
+        <button class="btn btn-success" routerLink="add">Add Car</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let car of cars">
+      <th scope="row">{{ car.carId }}</th>
+      <td>{{ car.brandName}}</td>
+      <td>{{ car.carName}}</td>
+      <td>{{ car.modelYear}}</td>
+      <td>{{ car.colorName}}</td>
+      <td>{{ car.dailyPrice}}</td>
+      <td>
+        <button
+          class="btn btn-warning"
+          type="button"
+          routerLink="update/{{ car.carId }}"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-danger mx-2"
+          type="button"
+          routerLink="delete/{{ car.carId }}"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
