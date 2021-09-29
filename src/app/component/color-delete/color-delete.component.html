@@ -1,0 +1,62 @@
+<div *ngIf="colorLoaded === true" class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">DeleteColor</h5>
+        </div>
+        <div class="card-body">
+          <table class="table container">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Color</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="color">
+                <td>{{ color.id }}</td>
+                <td>{{ color.name }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-dark" (click)="backToList()">
+            Back To List
+          </button>
+          <button
+            class="btn btn-fill btn-danger"
+            style="float: right"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmModal"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="color" class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete {{ color.name }}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Are you sure you want to remove this color?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            No
+          </button>
+          <button type="button" class="btn btn-danger" (click)="delete()">
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
