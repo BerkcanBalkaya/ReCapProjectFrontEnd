@@ -1,8 +1,30 @@
+<!-- <div class="bg-dark bg-gradient text-center text-light p-3 mb-1 rounded">
+  <strong>{{ brandFilterHeader }}</strong>
+</div> -->
+
+<div class="form-group mb-3">
+  <!-- <label for="filterBrand">Brand</label> -->
+  <input
+    type="text"
+    [(ngModel)]="brandFilter"
+    class="form-control"
+    id="brandFilter"
+    placeholder="Enter Brand"
+  />
+</div>
+
 <ul class="list-group">
   <li
+    [class]="getCurrentBrandClass()"
+    (click)="setCurrentBrandEmpty()"
+    routerLink="/cars"
+  >
+    {{ brandFilterHeader }}
+  </li>
+  <li
     (click)="setCurrentBrand(brand)"
-    routerLink="/cars/brand/{{brand.id}}"
-    *ngFor="let brand of brands"
+    routerLink="/cars/brand/{{ brand.id }}"
+    *ngFor="let brand of brands | brandFilter: brandFilter"
     [class]="getCurrentBrandClass(brand)"
   >
     {{ brand.name }}
