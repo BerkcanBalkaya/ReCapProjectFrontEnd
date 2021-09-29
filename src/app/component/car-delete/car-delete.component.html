@@ -1,0 +1,70 @@
+<div class="content">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-header">
+          <h5 class="title">DeleteBrand</h5>
+        </div>
+        <div class="card-body">
+          <table class="table container">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Brand</th>
+                <th>Model Name</th>
+                <th>Color</th>
+                <th>Model Year</th>
+                <th>Daily Price</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngIf="carDetails">
+                <td>{{ carDetails.carId }}</td>
+                <td>{{ carDetails.brandName }}</td>
+                <td>{{ carDetails.carName }}</td>
+                <td>{{ carDetails.colorName }}</td>
+                <td>{{ carDetails.modelYear }}</td>
+                <td>{{ carDetails.dailyPrice }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="card-footer">
+          <button class="btn btn-fill btn-dark" (click)="backToList()">
+            Back To List
+          </button>
+          <button
+            class="btn btn-fill btn-danger"
+            style="float: right"
+            data-bs-toggle="modal"
+            data-bs-target="#confirmModal"
+          >
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="carDetails" class="modal fade" id="confirmModal" tabindex="-1">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Delete {{ carDetails.carName }}</h5>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">Are you sure you want to remove this brand?</div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+            No
+          </button>
+          <button type="button" class="btn btn-danger" (click)="delete()">
+            Yes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
