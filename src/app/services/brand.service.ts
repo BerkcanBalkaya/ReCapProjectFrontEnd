@@ -3,6 +3,8 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Brand } from '../models/brand';
 import { ListResponseModel } from '../models/listResponseModel';
+import { ResponseModel } from '../models/responseModel';
+import { SingleResponseModel } from '../models/singleResponseModel';
 
 @Injectable({
   providedIn: 'root',
@@ -13,13 +15,23 @@ export class BrandService {
 
   constructor(private httpClient: HttpClient) {}
   
+  add(brand:Brand):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"Brands/add",brand)
+  }
+  update(brand:Brand):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"Brands/update",brand)
+  }
+  delete(brand:Brand):Observable<ResponseModel>{
+    return this.httpClient.post<ResponseModel>(this.apiUrl+"Brands/delete",brand)
+  }
+
   getBrands(): Observable<ListResponseModel<Brand>> {
     let newPath = this.apiUrl+ 'Brands/getall'
     return this.httpClient.get<ListResponseModel<Brand>>(newPath);
   }
 
-  getBrandsById(brandId:number):Observable<ListResponseModel<Brand>>{
+  getBrandById(brandId:number):Observable<SingleResponseModel<Brand>>{
     let newPath = this.apiUrl+ 'Brands/getbyid?id='+brandId;
-    return this.httpClient.get<ListResponseModel<Brand>>(newPath);
+    return this.httpClient.get<SingleResponseModel<Brand>>(newPath);
   }
 }
