@@ -1,0 +1,33 @@
+<table class="table table-striped">
+  <thead class="bg-primary text-light">
+    <tr>
+      <th class="text-light" scope="col">Id</th>
+      <th class="text-light" scope="col">Color Name</th>
+      <th scope="col">
+        <button class="btn btn-success" routerLink="add">Add Color</button>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let color of colors">
+      <th scope="row">{{ color.id }}</th>
+      <td>{{ color.name }}</td>
+      <td>
+        <button
+          class="btn btn-warning"
+          type="button"
+          routerLink="update/{{ color.id }}"
+        >
+          Update
+        </button>
+        <button
+          class="btn btn-danger mx-2"
+          type="button"
+          routerLink="delete/{{ color.id }}"
+        >
+          Delete
+        </button>
+      </td>
+    </tr>
+  </tbody>
+</table>
