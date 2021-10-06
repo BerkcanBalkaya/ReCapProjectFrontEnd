@@ -1,96 +1,56 @@
-<div class="row mt-3">
-  <div class="col-md-7">
-    <div id="carousel" class="carousel slide">
-      <div class="carousel-inner">
-        <div
-          *ngFor="let carImage of carImages"
-          [class]="getCurrentImageClass(carImage)"
-        >
-          <img [src]="getCarImageUrl(carImage)" alt="kys" />
+<section *ngIf="detailsLoaded" class="car-details-container">
+  <div class="row">
+    <div class="col-md-8">
+      <app-car-detail-swipper [carDetail]="carDetail"></app-car-detail-swipper>
+    </div>
+    <div class="col ms-5 ps-5">
+      <div class="row">
+        <div class="car-info-box">
+          <h1>{{ carDetail.brandName }}</h1>
+          <span>{{ carDetail.carName }}</span>
+          <div class="car-info-element">
+            Color : <a> {{ carDetail.colorName }} </a>
+          </div>
+          <div class="car-info-element">
+            Model Year : <a> {{ carDetail.modelYear }} </a>
+          </div>
+          <div class="car-info-element">
+            Daily Price :
+            <a> {{ carDetail.dailyPrice | currency: "TRY":"₺":"1.2" }} </a>
+          </div>
         </div>
-        <div *ngIf="carImages.length > 1">
-          <button
-            class="carousel-control-prev"
-            (click)="getPreviousImage()"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="prev"
-          >
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button
-            class="carousel-control-next"
-            (click)="getNextImage()"
-            type="button"
-            data-bs-target="#carouselExampleIndicators"
-            data-bs-slide="next"
-          >
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
+      </div>
+      <div class="row">
+        <div class="rental-info-box">
+          <div class="mb-3">
+            <label for="rentStartDate">Rent Start Date</label>
+            <input
+              id="rentStartDate"
+              type="datetime-local"
+              class="form-control"
+              [min]="getDateTimeNow()"
+              [value]="getDateTimeNow()"
+            />
+          </div>
+          <div class="my-3">
+            <label for="rentEndDate">Rent End Date</label>
+            <input
+              id="rentEndDate"
+              type="datetime-local"
+              class="form-control"
+              [min]="addDayToCurrentDay()"
+              [value]="addDayToCurrentDay()"
+            />
+          </div>
+          <div class="row d-flex justify-content-center">
+            <div class="col-8">
+              <div class="row">
+                <a class="btn">Rent</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-md-5 ps-5">
-    <div>
-      <table *ngIf="detailsLoaded" class="table table-striped">
-        <tr>
-          <th scope="col">CarId</th>
-          <td>{{ carDetail.carId }}</td>
-        </tr>
-        <tr>
-          <th scope="col">CarName</th>
-          <td>{{ carDetail.carName }}</td>
-        </tr>
-        <tr>
-          <th scope="col">BrandName</th>
-          <td>{{ carDetail.brandName }}</td>
-        </tr>
-        <tr>
-          <th scope="col">ColorName</th>
-          <td>{{ carDetail.colorName }}</td>
-        </tr>
-        <tr>
-          <th scope="col">DailyPrice</th>
-          <td>{{ carDetail.dailyPrice }}</td>
-        </tr>
-      </table>
-    </div>
-  </div>
-</div>
-<div class="row mt-3">
-  <div class="col input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Rent Start Date</span>
-    <input
-      type="datetime-local"
-      [value]="getDateTimeNow()"
-      [min]="getDateTimeNow()"
-      class="form-control"
-      placeholder="Username"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-    />
-  </div>
-  <div class="col input-group mb-3">
-    <span class="input-group-text" id="basic-addon1">Rent End Date</span>
-    <input
-      type="datetime-local"
-      [value]="getDateTimeNow()"
-      [min]="getDateTimeNow()"
-      class="form-control"
-      placeholder="Username"
-      aria-label="Username"
-      aria-describedby="basic-addon1"
-    />
-  </div>
-</div>
-<div class="row">
-  <div class="col">
-    <div class="d-grid">
-      <button routerLink="/rental/payment"
-       class="btn btn-primary" type="button">+Rent</button>
-    </div>
-  </div>
-</div>
+</section>

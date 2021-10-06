@@ -15,6 +15,13 @@ export class CarDetailService {
   apiUrl = 'https://localhost:44311/api/';
   constructor(private httpClient: HttpClient) {}
 
+
+  getTopTenMostRentedCars() : Observable<ListResponseModel<CarDetail>>
+  {
+    let newPath = this.apiUrl+ 'Cars/gettoptenmostrentedcars' 
+    return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
+  }
+
   getCarDetails(): Observable<ListResponseModel<CarDetail>> {
     let newPath = this.apiUrl+ 'Cars/getcardetails' 
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
@@ -39,5 +46,7 @@ export class CarDetailService {
     let newPath = this.apiUrl+ 'Cars/getcardetailsbycolorandbrandid?colorId='+colorId+'&brandId='+ brandId;
     return this.httpClient.get<ListResponseModel<CarDetail>>(newPath);
   }
+
+  
   
 }

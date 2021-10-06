@@ -1,0 +1,14 @@
+<div [class]="registerFormClass">
+
+    <fa-icon [icon]="faTimes" (click)="closeRegisterFormClick()" id="close-register-form" class="fas fa-times"></fa-icon>
+
+    <form [formGroup]="registerForm" action="">
+        <h3>user register</h3>
+		<input formControlName="firstName" type="text" placeholder="firstname" class="box">
+		<input formControlName="lastName" type="text" placeholder="lastname" class="box">
+        <input formControlName="email" type="email" placeholder="email" class="box">
+        <input formControlName="password" type="password" placeholder="password" class="box">
+        <input type="submit" (click)="register()" value="register" class="btn">
+    </form>
+
+</div>

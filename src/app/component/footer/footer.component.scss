@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
+
+$yellow:#f9d806;
+$light-yellow:#ffee80;
+$black:#130f40;
+$light-color:#666;
+$box-shadow:0 .5rem 1rem rgba(0,0,0,.1);
+$border:.1rem solid rgba(0,0,0,.1);
+
+
+.footer{
+    background: $light-yellow;
+    padding-bottom: 8rem;
+}
+
+.footer .box-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(25rem, 1fr));
+    gap:1.5rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.2rem;
+    padding:1rem 0;
+    color:$black;
+}
+
+.footer .box-container .box a{
+    display: block;
+    font-size: 1.4rem;
+    padding:1rem 0;
+    color:$light-color;
+    text-decoration: none;
+}
+
+.footer .box-container .box a fa-icon{
+    padding-right: .5rem;
+    color:$black;
+}
+
+.footer .box-container .box a:hover fa-icon{
+    padding-right: 2rem;
+}
+
+.footer .credit{
+    text-align: center;
+    padding:1.5rem;
+    padding-top: 2.5rem;
+    margin-top: 2rem;
+    border-top: $border;
+    font-size: 2rem;
+    color:$black;
+}

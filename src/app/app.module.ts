@@ -34,6 +34,18 @@ import { CarDeleteComponent } from './component/car-delete/car-delete.component'
 import { CarManagerComponent } from './component/car-manager/car-manager.component';
 import { LoginComponent } from './component/login/login.component';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { HomePageComponent } from './component/pages/home-page/home-page.component';
+import { RegisterComponent } from './component/register/register.component';
+import { SwiperModule } from 'swiper/angular';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { HomeSwiperFeaturedComponent } from './component/swiper/home-swiper-featured/home-swiper-featured.component';
+import { FooterComponent } from './component/footer/footer.component';
+import { CarsPageComponent } from './component/pages/cars-page/cars-page.component';
+import { CarDetailPageComponent } from './component/pages/car-detail-page/car-detail-page.component';
+import { CarDetailSwipperComponent } from './component/swiper/car-detail-swipper/car-detail-swipper.component';
+
+
+
 
 
 @NgModule({
@@ -64,9 +76,19 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
     CarDeleteComponent,
     CarManagerComponent,
     LoginComponent,
+    HomePageComponent,
+    RegisterComponent,
+    HomeSwiperFeaturedComponent,
+    FooterComponent,
+    CarsPageComponent,
+    CarDetailPageComponent,
+    CarDetailSwipperComponent,
+    
   ],
   imports: [
     ReactiveFormsModule,
+    SwiperModule,
+    FontAwesomeModule,
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass:"toast-bottom-right"

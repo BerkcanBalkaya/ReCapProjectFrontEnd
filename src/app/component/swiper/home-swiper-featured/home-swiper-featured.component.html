@@ -1,0 +1,35 @@
+<div class="vehicles" id="vehicles" >
+    <swiper
+      [slidesPerView]="4"
+      [centeredSlides]="true"
+      [spaceBetween]="30"
+      [grabCursor]="true"
+      [pagination]="{
+        clickable: true
+      }"
+      [loopFillGroupWithBlank]="true"
+      class="vehicles-slider"
+    >
+      <ng-template *ngFor="let carDetail of carDetails" swiperSlide class="box">
+          <div class="image-container">
+            <img [src]="getCarThumbnailUrl(carDetail.carId)"
+            class="card-img-top"
+            role="button" 
+            alt="" />
+          </div>
+        
+        <div class="content">
+          <h3>new model</h3>
+          <div class="price"><span>price : </span> {{carDetail.dailyPrice | currency:"TRY":"₺":"1.2"}}/-</div>
+          <p>
+            new
+            <fa-icon [icon]="faCircle" class="fas fa-circle"></fa-icon> {{carDetail.brandName}}
+            <fa-icon [icon]="faCircle" class="fas fa-circle"></fa-icon> {{carDetail.carName}}
+            <fa-icon id="popularSectionIcon" [icon]="faCircle" class="fas fa-circle"></fa-icon> {{carDetail.modelYear}}
+            <fa-icon [icon]="faCircle" class="fas fa-circle"></fa-icon> {{carDetail.colorName}}
+          </p>
+          <a href="#" routerLink="/cardetails/{{ carDetail.carId }}" class="btn">check out</a>
+        </div> </ng-template
+      >
+    </swiper>
+    </div>

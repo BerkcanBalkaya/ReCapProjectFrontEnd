@@ -26,7 +26,7 @@
   <div class="col-md-2">
     <button
       (click)="getCarDetailsByFilter(currentColorId, currentBrandId)"
-      class="btn btn-primary"
+      class="btn"
     >
       Filtrele
     </button>
@@ -43,7 +43,7 @@
       />
       <button
         (click)="getCurrentCarDetailClass()"
-        class="btn btn-outline-secondary"
+        class="btn"
         type="button"
         id="button-addon2"
       >
@@ -56,28 +56,27 @@
 <div class="row">
   <div
     *ngFor="let carDetail of carsDetails | carDetailFilter: carFilter"
-    class="col-md-4"
+    class="col-md-3"
   >
-    <div class="card" style="width: 18rem">
-      <img
-        [src]="getCarThumbnailUrl(carDetail.carId)"
-        class="card-img-top"
-        role="button"
-        routerLink="/cardetails/{{ carDetail.carId }}"
-        alt="kys"
-      />
+    <div class="card mx-3 mb-5">
+      <div class="image-container">
+        <img
+          [src]="getCarThumbnailUrl(carDetail.carId)"
+          class="card-img-top"
+          role="button"
+          routerLink="/cardetails/{{ carDetail.carId }}"
+          alt="kys"
+        />
+      </div>
+
       <div class="card-body">
-        <h5 class="card-title">{{ carDetail.carName }}</h5>
-        <div class="row">
-          <div class="col">
-            <div class="d-grid">
-              <button class="btn btn-primary" type="button">+Favorites</button>
-            </div>
-          </div>
-          <div class="col">
-            <div class="d-grid">
-              <button routerLink="/rental/payment"
-              class="btn btn-primary" type="button">+Rent</button>
+        <h5 class="card-title">{{ carDetail.carName }} </h5>
+        <div class="row d-flex align-item-center justify-content-center">
+          <div class="col-md-8">
+            <div class="row">
+              <a routerLink="/cardetails/{{ carDetail.carId }}" class="btn" type="button">
+                More Information
+              </a>
             </div>
           </div>
         </div>

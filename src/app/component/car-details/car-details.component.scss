@@ -1,23 +1,69 @@
-* {
-    overflow-x: hidden;
-    word-wrap: break-word;
-  
-    .carousel-inner {
-        width: 640px;
-        height: 360px;
-        .carousel-item.active img {
-          margin: auto;
-          display: block;
-          width: 640px;
-          //   max-width: 640px;
-          height: 360px;
-          //   max-height: 360px;
-        }
-      }
-  }
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
 
-  .input-group-text {
-    color: rgb(255, 255, 255);
-    background-color: rgb(50, 118, 177);
-    border-color: rgb(40, 94, 142);
+$box-shadow-1: 1px 4px 41px rgba(0, 0, 0, 0.1);
+$box-shadow-2: 0 14px 28px rgba(0, 0, 0, 0.25);
+$box-shadow-3: 0 14px 10px rgba(0, 0, 0, 0.22);
+
+$yellow:#f9d806;
+$light-yellow:#ffee80;
+$light:#315279;
+$black:#130f40;
+$light-color:#666;
+$box-shadow:0rem .5rem 1rem rgba(243, 227, 7, 0.459);
+$border:.1rem solid rgba(0,0,0,.1);
+
+.car-details-container {
+  min-height: 100vh;
+  margin-top: 15rem;
+}
+.car-info-box {
+  text-align: center;
+  box-shadow: $box-shadow;
+  h1{
+    color:$black;
+    font-size: 5.5vw;
+    text-transform: uppercase;
+  }
+  span{
+
+    font-size: 1.5vw;
+
+  }
+  .car-info-element{
+
+    font-size: 1.5vw;
+
+  }
+  
+}
+
+
+.rental-info-box {
+  
+  box-shadow: $box-shadow;
+  margin-top: 10rem;
+  border-radius: 30px;
+  label{
+    font-size: 1.1vw;
+  }
+  input{
+    font-size: 0.9vvw;
+  }
+}
+
+.btn{
+  display: inline-block;
+  margin-top: 1rem;
+  padding:.8rem 3rem;
+  background:$light-yellow;
+  color:$black;
+  cursor: pointer;
+  font-size: 1.7rem;
+  border-radius: .5rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.btn:hover{
+  background:$yellow;
 }

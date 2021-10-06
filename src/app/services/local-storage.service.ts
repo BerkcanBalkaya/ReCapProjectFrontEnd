@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,13 @@ export class LocalStorageService {
 
   remove(key: string) {
     localStorage.removeItem(key);
+  }
+
+  getUserDetails(){
+    return JSON.parse(localStorage.getItem("userDetails"));
+  }
+
+  setUserDetails(userModel:User){
+    localStorage.setItem("userDetails",JSON.stringify(userModel))
   }
 }

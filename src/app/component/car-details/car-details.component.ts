@@ -33,7 +33,7 @@ export class CarDetailsComponent implements OnInit {
     this.activatedRoute.params.subscribe(params=>{
       if (params["carId"]) {
         this.getCarImages(params["carId"]);
-        this.getCarDetail(params["carId"]);
+        // this.getCarDetail(params["carId"]);
       }
     });
   }
@@ -44,6 +44,7 @@ export class CarDetailsComponent implements OnInit {
       this.imagesLoaded = true;
       if (this.imagesLoaded) {
         this.currentImage=this.carImages[0];
+        this.getCarDetail(carId)
       }
     })
   }
@@ -52,6 +53,11 @@ export class CarDetailsComponent implements OnInit {
     this.carDetailService.getCarDetailsByCarId(carId).subscribe(response=>{
       this.carDetail=response.data;
       this.detailsLoaded=true;
+      if (this.detailsLoaded) {
+        console.log(this.carDetail);
+      }
+      
+      
     })
   }
 
@@ -91,5 +97,8 @@ export class CarDetailsComponent implements OnInit {
     return this.dateTimeService.getTodayWithTime();
   }
 
+  addDayToCurrentDay(): string {
+    return this.dateTimeService.addDayToDate(this.getDateTimeNow(), 1);
+  }
 
 }
